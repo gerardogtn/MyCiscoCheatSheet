@@ -1,5 +1,8 @@
 # Configuring Routing Protocols.
 
+## Default route
+`(config)# ip route 0.0.0.0 0.0.0.0 $INTERFACE$ $IP$`
+
 ## RIPv2
 `(config)# router rip`
 
@@ -16,3 +19,11 @@ Here `$INTERFACES$` is the interface of the router that is not connected to anot
 
 ### No summarization
 `(config)# no auto-summary`
+
+### Share default route information
+`default-information originate`
+
+## RIPng
+`(config)# interface $INTERFACE$`
+`(config-if)# ipv6 rip RIP-AS enable`
+`(config-if)# no shutdown`
